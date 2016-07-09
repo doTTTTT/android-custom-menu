@@ -6,7 +6,7 @@ It's a CustomMenu for Android. That will take `NavigationView` place.
 
 # Getting Started
 
-
+[Getting Started](getting-started)
 
 # Link
 
