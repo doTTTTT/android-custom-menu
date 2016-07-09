@@ -10,7 +10,14 @@ It's a CustomMenu for Android. That will take `NavigationView` place.
 
 # Change Log
 
-### 0.1 - Inital commit - 09/07/2016
+#### 0.2 - Example Application - 09/07/2016
+- Add example application
+- Add an Animation to the updateview
+- Change selection item
+- `OnMenuItemClickListener` now return `ListItemModel`
+- Add fade animation to start and end
+
+#### 0.1 - Inital commit - 09/07/2016
 
 # Link
 
