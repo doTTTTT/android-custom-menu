@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spnEntry">
+        <item>Nothing</item>
+        <item>Slide Left</item>
+        <item>Slide Right</item>
+        <item>Fade</item>
+    </string-array>
+</resources>

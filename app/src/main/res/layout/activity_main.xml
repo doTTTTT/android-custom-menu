@@ -5,7 +5,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.dot.example.MainActivity">
+        tools:context=".view.MainActivity">
 
     <ImageView
             android:src="@drawable/background"
@@ -14,13 +14,8 @@
             android:layout_height="match_parent"/>
 
 
-    <TextView
-            android:gravity="center"
-            android:background="#FFF"
-            android:textColor="#000"
-            android:id="@+id/social"
-            android:layout_centerInParent="true"
-            android:text=""
+    <FrameLayout
+            android:id="@+id/container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 </RelativeLayout>

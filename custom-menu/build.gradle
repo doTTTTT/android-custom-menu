@@ -1,0 +1,79 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    group = "com.dottttt"
+    version = "0.0.7"
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+task generateJavadocs(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath()
+            .join(File.pathSeparator))
+}
+
+task generateJavadocsJar(type: Jar) {
+    from generateJavadocs.destinationDir
+    classifier 'javadoc'
+}
+
+task generateSourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier 'sources'
+}
+
+artifacts {
+    archives generateJavadocsJar
+    archives generateSourcesJar
+}
+
+generateJavadocsJar.dependsOn generateJavadocs
+
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
+
+bintray {
+    user = 'dottt'
+    key = '30c64dfcac18615cab65c4c92c4de7548007f413'
+
+    pkg {
+        repo = 'maven'
+        name = 'android-custom-menu'
+
+        version {
+            name = '0.0.7'
+            desc = 'Configuration Bintray - Maven'
+            released  = new Date()
+            vcsTag = '0.0.7'
+        }
+
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/doTTTTT/android-custom-menu.git'
+        websiteUrl = 'https://github.com/doTTTTT/android-custom-menu'
+    }
+    configurations = ['archives']
+}
+
+dependencies {
+    compile 'com.android.support:appcompat-v7:23.0.0'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'de.hdodenhof:circleimageview:2.1.0'
+    compile 'com.android.support:design:23.3.0'
+}
