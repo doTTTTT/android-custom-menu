@@ -4,6 +4,8 @@ This is currently in progress, you can test it, if you want.
 
 It's a CustomMenu for Android. That will take `NavigationView` place.
 
+![Example](https://i.gyazo.com/8bf4a6180cfd96048cad0e594d5fcffa.gif)
+
 # Getting Started
 
 [Getting Started](https://github.com/doTTTTT/android-custom-menu/wiki/Getting-Started)
