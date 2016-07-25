@@ -12,6 +12,10 @@ It's a CustomMenu for Android. That will take `NavigationView` place.
 
 # Change Log
 
+#### 0.0.4 - Bug Resolve - 19/07/2016
+- Add 'android:configChanges="orientation|screenSize"' to your Activity (Very important)
+- Bug Resolve
+
 #### 0.0.3 - Example Application - 09/07/2016
 - Add lot of Utils function to CustomMenu
 - Bug resolve

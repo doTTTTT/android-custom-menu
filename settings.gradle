@@ -1,1 +1,1 @@
-include ':app', ':custom-menu'
+include ':app', ':custom-menu', ':network-loading'

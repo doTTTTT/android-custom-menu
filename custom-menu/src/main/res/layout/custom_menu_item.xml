@@ -1,30 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:clipChildren="false"
-    android:clipToPadding="false"
-    android:orientation="horizontal"
-    android:gravity="center_vertical"
-    android:layout_width="match_parent"
-    android:layout_height="100dp">
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:visibility="gone"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:weightSum="1">
 
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/button"
-        android:visibility="invisible"
-        android:elevation="0dp"
-        app:elevation="0dp"
-        android:layout_margin="10dp"
-        android:layout_width="40dp"
-        android:layout_height="40dp" />
+            android:id="@+id/button"
+            android:visibility="invisible"
+            android:elevation="0dp"
+            app:elevation="0dp"
+            android:layout_margin="10dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"/>
 
     <TextView
-        android:id="@+id/title"
-        android:text="Test"
-        android:textColor="#FFF"
-        android:gravity="center_vertical"
-        android:visibility="invisible"
-        android:padding="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+            android:id="@+id/title"
+            android:text="Test"
+            android:textColor="#FFF"
+            android:gravity="center_vertical"
+            android:visibility="invisible"
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"/>
+
+    <View
+            android:id="@+id/close"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"/>
 </LinearLayout>

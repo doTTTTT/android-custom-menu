@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:ntwldg="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
+              android:background="@drawable/background_settings"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <TextView
-            android:gravity="center"
-            android:text="GooglePlus"
-            android:textColor="#000000"
+    <com.dot.networkloading.NetworkLoading
+            android:id="@+id/network_loading"
+            ntwldg:text="Google Plus"
+            ntwldg:image="@drawable/ic_google_plus"
+            ntwldg:imageBackground="@drawable/ic_google_plus"
+            ntwldg:uniqueIdentifier="3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 </LinearLayout>

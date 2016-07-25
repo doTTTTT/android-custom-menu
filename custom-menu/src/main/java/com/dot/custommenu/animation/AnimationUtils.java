@@ -1,12 +1,18 @@
 package com.dot.custommenu.animation;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ObjectAnimator;
+import android.animation.*;
+import android.content.Context;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
+import com.dot.custommenu.R;
 
 public class AnimationUtils {
+    public static void onClick(Context context, View view){
+        AnimatorSet animY = (AnimatorSet) AnimatorInflater.loadAnimator(context, R.animator.bounce_button);
+        animY.setTarget(view);
+        animY.start();
+    }
+
     public static void fadeIn(View view){
         fadeIn(view, 500);
     }

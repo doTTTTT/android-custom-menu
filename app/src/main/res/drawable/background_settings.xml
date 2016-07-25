@@ -4,15 +4,15 @@
             android:color="#FFFFFF"/>
 
     <!--<stroke-->
-            <!--android:width="3dip"-->
-            <!--android:color="#00FFFFFF" />-->
+    <!--android:width="3dip"-->
+    <!--android:color="#00FFFFFF" />-->
 
     <corners
             android:radius="10dip"/>
 
-    <padding
-            android:left="5dip"
-            android:top="5dip"
-            android:right="5dip"
-            android:bottom="5dip" />
+    <!--<padding-->
+            <!--android:left="5dip"-->
+            <!--android:top="5dip"-->
+            <!--android:right="5dip"-->
+            <!--android:bottom="5dip" />-->
 </shape>

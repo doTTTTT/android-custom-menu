@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/android-custom-menu.iml" filepath="$PROJECT_DIR$/android-custom-menu.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/custom-menu/custom-menu.iml" filepath="$PROJECT_DIR$/custom-menu/custom-menu.iml" />
+      <module fileurl="file://$PROJECT_DIR$/network-loading/network-loading.iml" filepath="$PROJECT_DIR$/network-loading/network-loading.iml" />
     </modules>
   </component>
 </project>

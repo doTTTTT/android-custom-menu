@@ -5,18 +5,23 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.*;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import android.widget.ScrollView;
+import android.widget.Toast;
+import com.dot.custommenu.animation.AnimatedMenu;
 import com.dot.custommenu.animation.AnimationMenu;
 import com.dot.custommenu.animation.AnimationUtils;
+import com.dot.custommenu.animation.menu.FadeAnimation;
+import com.dot.custommenu.animation.menu.SlideUpAnimation;
 import com.dot.custommenu.model.ListItemModel;
 import com.dot.custommenu.listener.OnItemClickListener;
 import com.dot.custommenu.listener.OnMenuItemClickListener;
@@ -24,6 +29,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.dot.custommenu.animation.AnimationMenu.*;
 
 public class CustomMenu extends RelativeLayout implements View.OnClickListener, OnItemClickListener {
     private RelativeLayout root;
@@ -34,6 +41,7 @@ public class CustomMenu extends RelativeLayout implements View.OnClickListener, 
     private List<ListItemModel> list;
     private OnMenuItemClickListener onMenuItemClickListener = null;
     private AnimatorSet start = null, end = null;
+    private AnimationMenu animationMenu = null;
     private CircleImageView floatingActionButton;
     private int colorBorder,
             widthBorder,
@@ -68,8 +76,10 @@ public class CustomMenu extends RelativeLayout implements View.OnClickListener, 
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private void init() {
-        root = (RelativeLayout) LayoutInflater.from(context).inflate(R.layout.custom_menu, null);
-        this.addView(root);
+        ScrollView scrollView = (ScrollView) LayoutInflater.from(context).inflate(R.layout.custom_menu, null);
+        root = (RelativeLayout) scrollView.findViewById(R.id.root);
+
+        this.addView(scrollView);
 
         floatingActionButton = (CircleImageView) findViewById(R.id.navigation_drawer);
         floatingActionButton.setOnClickListener(this);
@@ -78,9 +88,10 @@ public class CustomMenu extends RelativeLayout implements View.OnClickListener, 
 
         list = new ArrayList<>();
 
-        AnimationMenu.getInstance(context).setList(list);
-        AnimationMenu.getInstance(context).setTime(0);
-        AnimationMenu.getInstance(context).setY(floatingActionButton.getY());
+        animationMenu = new AnimationMenu().setList(list)
+                .setTime(0)
+                .setY(floatingActionButton.getY())
+                .setAnimatedMenu(new SlideUpAnimation(floatingActionButton.getY()));
 
         start = new AnimatorSet();
         end = new AnimatorSet();
@@ -90,11 +101,11 @@ public class CustomMenu extends RelativeLayout implements View.OnClickListener, 
     private void start(){
         if (!isStarted()){
             floatingActionButton.setEnabled(false);
-            start = AnimationMenu.getInstance(context).loadStartAnimation();
+            start = animationMenu.loadStartAnimation();
 
             if(!isFirst()){
                 isFirst = true;
-                start = AnimationMenu.getInstance(context).loadFirstAnimation();
+                start = animationMenu.loadFirstAnimation();
             }
 
             isStarted = true;
@@ -118,7 +129,7 @@ public class CustomMenu extends RelativeLayout implements View.OnClickListener, 
     public void end() {
         if (!isEnded()){
             floatingActionButton.setEnabled(false);
-            end = AnimationMenu.getInstance(context).loadEndAnimation();
+            end = animationMenu.loadEndAnimation();
 
             isEnded = true;
             end.addListener(new AnimatorListenerAdapter() {
@@ -146,7 +157,10 @@ public class CustomMenu extends RelativeLayout implements View.OnClickListener, 
     }
 
     public CustomMenu create(){
-        listItem.addView(new ListItemModel(this, "", 0, null, 0).getRoot());
+        ListItemModel empty = new ListItemModel(this, "", 0, null, 0);
+        empty.getRoot().setVisibility(VISIBLE);
+
+        listItem.addView(empty.getRoot());
 
         for (ListItemModel tmp : list){
             listItem.addView(tmp.getRoot());
@@ -157,6 +171,7 @@ public class CustomMenu extends RelativeLayout implements View.OnClickListener, 
 
     public CustomMenu setItemSelected(int positon) {
         setItemSelected(getItem(positon));
+
         return this;
     }
 
@@ -210,6 +225,22 @@ public class CustomMenu extends RelativeLayout implements View.OnClickListener, 
         return setEnableAnimationView(true);
     }
 
+    public CustomMenu setAnimatedMenu(MenuAnimationType type){
+        AnimatedMenu animatedMenu = null;
+
+        switch (type){
+            case SLIDE_UP:
+                animatedMenu = new SlideUpAnimation(animationMenu.getY());
+                break;
+            case FADE:
+                animatedMenu = new FadeAnimation(animationMenu);
+                break;
+        }
+        animationMenu.setAnimatedMenu(animatedMenu);
+
+        return this;
+    }
+
     public boolean isBorder() {
         return isBorder;
     }
@@ -238,12 +269,17 @@ public class CustomMenu extends RelativeLayout implements View.OnClickListener, 
         return this.list.get(positon);
     }
 
+    public View getFloatingActionButton() {
+        return floatingActionButton;
+    }
+
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onClick(ListItemModel item) {
         setItemSelected(item);
 
         if (onMenuItemClickListener != null){
+            Log.d("CustomMenu", "Clicked");
             onMenuItemClickListener.onMenuItemSelected(item);
         }
     }
@@ -253,7 +289,7 @@ public class CustomMenu extends RelativeLayout implements View.OnClickListener, 
         int i = v.getId();
 
         if (i == R.id.navigation_drawer) {
-            AnimationMenu.getInstance(context).onClick(v);
+            AnimationUtils.onClick(context, v);
             if (!isClicked()) {
                 start();
             } else {

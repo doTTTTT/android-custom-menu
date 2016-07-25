@@ -45,13 +45,17 @@ public class MainActivity extends AppCompatActivity implements OnMenuItemClickLi
                 .setItemSelected(0);
 
         rootView.addView(customMenu.create());
+
+        FragmentManager manager = getSupportFragmentManager();
+        manager.beginTransaction()
+                .replace(R.id.container, new FacebookFragment())
+                .addToBackStack(null)
+                .commit();
     }
 
     @Override
     public void onMenuItemSelected(ListItemModel item) {
-        Toast.makeText(this, "I'm clicked", Toast.LENGTH_LONG).show();
         if (item.getFragment() != null){
-            Log.d("Fragment", "Replace");
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction()
                     .replace(R.id.container, item.getFragment())
