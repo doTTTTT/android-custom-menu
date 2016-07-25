@@ -1,2 +1,1 @@
-include ':app', ':custom-menu', ':network-loading'
-project(':network-loading').projectDir = new File('android-network-loading/network-loading')
+include ':app', ':custom-menu'

@@ -8,7 +8,6 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/android-network-loading/network-loading" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/custom-menu" />
           </set>
@@ -16,7 +15,6 @@
         <option name="myModules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/android-network-loading/network-loading" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/custom-menu" />
           </set>

@@ -6,12 +6,9 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <com.dot.networkloading.NetworkLoading
-            android:id="@+id/network_loading"
-            ntwldg:text="Google Plus"
-            ntwldg:image="@drawable/ic_google_plus"
-            ntwldg:imageBackground="@drawable/ic_google_plus"
-            ntwldg:uniqueIdentifier="3"
+    <TextView
+            android:gravity="center"
+            android:text="GooglePlus"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 </LinearLayout>

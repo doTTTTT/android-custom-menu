@@ -6,12 +6,10 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <com.dot.networkloading.NetworkLoading
-            android:id="@+id/network_loading"
-            ntwldg:text="Twitter"
-            ntwldg:image="@drawable/ic_twitter"
-            ntwldg:imageBackground="@drawable/ic_twitter"
-            ntwldg:uniqueIdentifier="6"
+
+    <TextView
+            android:gravity="center"
+            android:text="Twitter"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 </LinearLayout>

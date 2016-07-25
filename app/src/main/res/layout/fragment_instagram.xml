@@ -6,12 +6,9 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <com.dot.networkloading.NetworkLoading
-            android:id="@+id/network_loading"
-            ntwldg:text="Instagram"
-            ntwldg:image="@drawable/ic_instagram"
-            ntwldg:uniqueIdentifier="4"
-            ntwldg:imageBackground="@drawable/ic_instagram"
+    <TextView
+            android:gravity="center"
+            android:text="Instagram"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 </LinearLayout>

@@ -8,35 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.dot.example.R;
-import com.dot.networkloading.NetworkLoading;
-import com.dot.networkloading.listeners.OnLoadingListener;
 
-public class YoutubeFragment extends Fragment implements OnLoadingListener {
-    private NetworkLoading networkLoading;
+public class YoutubeFragment extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_youtube, container, false);
 
-        networkLoading = (NetworkLoading) rootView.findViewById(R.id.network_loading);
-        networkLoading.setOnLoadingListener(this);
-
         return rootView;
-    }
-
-    @Override
-    public void onLoading() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                YoutubeFragment.this.getActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        networkLoading.finsihLoading();
-                    }
-                });
-            }
-        }, 5000);
     }
 }

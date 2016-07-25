@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.2"
 
     group = "com.dottttt"
-    version = "0.0.7"
+    version = "0.0.9"
 
     defaultConfig {
         minSdkVersion 15
@@ -47,6 +47,8 @@ generateJavadocsJar.dependsOn generateJavadocs
 
 apply plugin: 'com.jfrog.bintray'
 apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'maven-publish'
+
 
 bintray {
     user = 'dottt'
@@ -55,12 +57,14 @@ bintray {
     pkg {
         repo = 'maven'
         name = 'android-custom-menu'
+        publications = ['MyPublication']
+        userOrg = 'bintray_user'
 
         version {
-            name = '0.0.7'
+            name = '0.0.9'
             desc = 'Configuration Bintray - Maven'
             released  = new Date()
-            vcsTag = '0.0.7'
+            vcsTag = '0.0.9'
         }
 
         licenses = ['Apache-2.0']

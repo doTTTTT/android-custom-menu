@@ -6,12 +6,10 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <com.dot.networkloading.NetworkLoading
-            android:id="@+id/network_loading"
-            ntwldg:text="Linkedin"
-            ntwldg:image="@drawable/ic_linkedin"
-            ntwldg:imageBackground="@drawable/ic_linkedin"
-            ntwldg:uniqueIdentifier="5"
+
+    <TextView
+            android:gravity="center"
+            android:text="Linkedin"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 </LinearLayout>

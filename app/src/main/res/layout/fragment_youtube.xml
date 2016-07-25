@@ -8,21 +8,8 @@
         android:layout_height="match_parent">
 
     <TextView
-            android:id="@+id/revealView"
             android:gravity="center"
-            android:text="TEST"
-            android:background="@android:color/darker_gray"
-            android:visibility="invisible"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-
-    <com.dot.networkloading.NetworkLoading
-            android:id="@+id/network_loading"
-            ntwldg:text="Youtube"
-            ntwldg:image="@drawable/ic_youtube"
-            ntwldg:imageBackground="@drawable/ic_youtube"
-            ntwldg:revealView="@id/revealView"
-            ntwldg:uniqueIdentifier="7"
+            android:text="Youtube"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 </RelativeLayout>
