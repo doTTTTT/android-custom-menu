@@ -8,17 +8,17 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/android-network-loading/network-loading" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/custom-menu" />
-            <option value="$PROJECT_DIR$/network-loading" />
           </set>
         </option>
         <option name="myModules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/android-network-loading/network-loading" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/custom-menu" />
-            <option value="$PROJECT_DIR$/network-loading" />
           </set>
         </option>
       </GradleProjectSettings>

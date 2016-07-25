@@ -22,10 +22,10 @@ android {
 
 dependencies {
     testCompile 'junit:junit:4.12'
-    compile project(':custom-menu')
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:24.0.0'
     compile project(':network-loading')
+    compile project(':custom-menu')
 }
 
 apply plugin: 'realm-android'

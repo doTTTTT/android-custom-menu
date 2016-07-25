@@ -1,0 +1,3 @@
+[submodule "android-network-loading"]
+	path = android-network-loading
+	url = git@github.com:doTTTTT/android-network-loading.git

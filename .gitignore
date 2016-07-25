@@ -38,3 +38,15 @@ captures/
 
 # Keystore files
 *.jks
+
+# Modules
+android-network-loading/.idea/
+android-network-loading/app/
+android-network-loading/gradle/
+android-network-loading/build.gradle/
+android-network-loading/gradle.properties/
+android-network-loading/gradlew/
+android-network-loading/gradlew.bat/
+android-network-loading/LICENSE/
+android-network-loading/README.md/
+android-network-loading/settings.gradle/
