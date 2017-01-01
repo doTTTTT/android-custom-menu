@@ -1,6 +1,6 @@
-# Android CustomMenu - Alpha
+# Android CustomMenu
 
-This is currently in progress, you can test it, if you want.
+Just idea I have.
 
 It's a CustomMenu for Android. That will take `NavigationView` place.
 
@@ -31,7 +31,7 @@ It's a CustomMenu for Android. That will take `NavigationView` place.
 
 #### 0.0.1 - Inital commit - 09/07/2016
 
-# Link
+# Credit
 
 [Linkedin](https://fr.linkedin.com/in/raphaelteyssandier
 )
